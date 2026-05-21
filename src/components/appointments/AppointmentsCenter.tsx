@@ -708,7 +708,7 @@ export default function AppointmentsCenter({
         <div className="lg:col-span-9 bg-white border border-gray-100 rounded-3xl p-6 shadow-sm space-y-6">
           
           {/* Calendar Header Navigators */}
-          <div className="flex items-center justify-between border-b border-gray-50 pb-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-gray-50 pb-4 gap-4">
             <div className="flex flex-wrap items-center gap-3">
               <button 
                 onClick={handlePrevDateRange}
@@ -752,7 +752,7 @@ export default function AppointmentsCenter({
             <div className="overflow-x-auto">
               <div className="min-w-[800px]">
                 {/* Week Header */}
-                <div className="grid grid-cols-8 border-b border-gray-100 pb-3 text-center">
+                <div className="grid grid-cols-[auto_repeat(7,1fr)] border-b border-gray-100 pb-3 text-center">
                   <div className="text-left text-[10px] font-bold text-gray-400 uppercase tracking-widest pt-2.5 pl-2">Horário</div>
                   {weekDays.map((day, dIdx) => {
                     const isSelected = formatDateString(day) === selectedDateStr;
@@ -778,7 +778,7 @@ export default function AppointmentsCenter({
                   {timeSlots.map((slot, sIdx) => {
                     const isLunchHour = slot === "12:00 PM";
                     return (
-                      <div key={sIdx} className="grid grid-cols-8 items-stretch min-h-[55px]">
+                      <div key={sIdx} className="grid grid-cols-[auto_repeat(7,1fr)] items-stretch min-h-[55px]">
                         
                         {/* Hour marker column */}
                         <div className="py-3 text-[11px] font-bold text-gray-400 flex flex-col justify-start">
@@ -866,36 +866,37 @@ export default function AppointmentsCenter({
 
           {/* DAY VIEW (Column per Dentist layout) */}
           {viewMode === 'day' && (
-            <div className="space-y-4">
-              <div className="grid grid-cols-4 border-b border-gray-100 pb-3 text-center">
-                <div className="text-left text-[10px] font-bold text-gray-400 uppercase tracking-widest pl-2">Horários</div>
-                {dentists.map((doc, dIdx) => {
-                  return (
-                    <div key={dIdx} className="p-1">
-                      <div className="flex items-center justify-center gap-2">
-                        <img alt={doc.name} src={doc.imageUrl} className="w-6 h-6 rounded-full border border-gray-150" />
-                        <div>
-                          <span className="font-extrabold text-[12px] text-gray-700 block text-center leading-3">{doc.name.split(' ')[1]}</span>
-                          <span className="text-[8px] text-gray-400 block tracking-widest">{doc.specialty.split(' ')[0]}</span>
+            <div className="overflow-x-auto">
+              <div className="min-w-[600px] space-y-4">
+                <div className="grid grid-cols-4 border-b border-gray-100 pb-3 text-center">
+                  <div className="text-left text-[10px] font-bold text-gray-400 uppercase tracking-widest pl-2">Horários</div>
+                  {dentists.map((doc, dIdx) => {
+                    return (
+                      <div key={dIdx} className="p-1">
+                        <div className="flex items-center justify-center gap-2">
+                          <img alt={doc.name} src={doc.imageUrl} className="w-6 h-6 rounded-full border border-gray-150" />
+                          <div>
+                            <span className="font-extrabold text-[12px] text-gray-700 block text-center leading-3">{doc.name.split(' ')[1]}</span>
+                            <span className="text-[8px] text-gray-400 block tracking-widest">{doc.specialty.split(' ')[0]}</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
+                    );
+                  })}
+                </div>
 
-              {/* Day slots layout */}
-              <div className="divide-y divide-gray-50 border-b border-gray-50 max-h-[500px] overflow-y-auto pr-1">
-                {timeSlots.map((slot, sIdx) => {
-                  const isLunchHour = slot === "12:00 PM";
-                  return (
-                    <div key={sIdx} className="grid grid-cols-4 items-stretch min-h-[60px]">
-                      
-                      {/* Hour stamp column */}
-                      <div className="py-4 text-[11px] font-bold text-gray-400 flex flex-col justify-start">
-                        <span>{slot}</span>
-                        {isLunchHour && <span className="text-[8px] text-amber-500">INTERVALO</span>}
-                      </div>
+                {/* Day slots layout */}
+                <div className="divide-y divide-gray-50 border-b border-gray-50 max-h-[500px] overflow-y-auto pr-1">
+                  {timeSlots.map((slot, sIdx) => {
+                    const isLunchHour = slot === "12:00 PM";
+                    return (
+                      <div key={sIdx} className="grid grid-cols-4 items-stretch min-h-[60px]">
+                        
+                        {/* Hour stamp column */}
+                        <div className="py-4 text-[11px] font-bold text-gray-400 flex flex-col justify-start">
+                          <span>{slot}</span>
+                          {isLunchHour && <span className="text-[8px] text-amber-500">INTERVALO</span>}
+                        </div>
 
                       {/* Dentist Columns mapper */}
                       {dentists.map((doc) => {
@@ -955,6 +956,7 @@ export default function AppointmentsCenter({
                 })}
               </div>
             </div>
+          </div>
           )}
 
           {/* MONTH VIEW (Compact Calendar Grid) */}
