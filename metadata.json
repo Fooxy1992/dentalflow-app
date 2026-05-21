@@ -1,0 +1,6 @@
+{
+  "name": "Serene Dental Clinic & Management",
+  "description": "A high-end clinical web portal featuring both patient-facing services and an intuitive dental practice management dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

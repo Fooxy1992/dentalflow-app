@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Geist", system-ui, sans-serif;
+  --font-display: "Geist", "Inter", sans-serif;
+  
+  --color-primary: #162839;
+  --color-primary-hover: #213a52;
+  --color-secondary: #735c00;
+  --color-neutral-base: #fbf9fa;
+  --color-accent-blue: #4e6073;
+  --color-emerald-custom: #10b981;
+  --color-gold-custom: #f59e0b;
+}
+
+/* Custom ambient shadow and high-end visual styles */
+.ambient-shadow {
+  box-shadow: 0 20px 60px -10px rgba(22, 40, 57, 0.05);
+}
+
+.glass-panel {
+  background: rgba(251, 249, 250, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Custom modern scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e4e2e3;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
