@@ -865,7 +865,7 @@ export default function DentistsTeamCenter({
                     <div className="p-4 bg-slate-50 rounded-2xl text-center space-y-1 border border-gray-100">
                       <span className="text-[9px] text-gray-400 font-bold block uppercase">VOLUME DE FATURAMENTO EST.</span>
                       <strong className="text-xl font-extrabold text-emerald-600">
-                        R$ {(activeMeta.revenueEst || 45000).toLocaleString('pt-BR')}
+                        € {(activeMeta.revenueEst || 45000).toLocaleString('pt-PT')}
                       </strong>
                     </div>
                   </div>

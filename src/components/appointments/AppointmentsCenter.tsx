@@ -718,10 +718,10 @@ export default function AppointmentsCenter({
               </button>
               
               <h2 className="text-md font-bold text-[#0b1c30] tracking-tight min-w-[150px] text-center capitalize">
-                {viewMode === 'month' && currentDate.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' })}
-                {viewMode === 'week' && `Semana de ${weekDays[0].toLocaleDateString('pt-BR', { day: 'numeric', month: 'short' })}`}
-                {viewMode === 'day' && currentDate.toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
-                {viewMode === 'timeline' && `${currentDate.toLocaleDateString('pt-BR', { day: 'numeric', month: 'short' })} ⎯ Timeline de Doutores`}
+                {viewMode === 'month' && currentDate.toLocaleDateString('pt-PT', { month: 'long', year: 'numeric' })}
+                {viewMode === 'week' && `Semana de ${weekDays[0].toLocaleDateString('pt-PT', { day: 'numeric', month: 'short' })}`}
+                {viewMode === 'day' && currentDate.toLocaleDateString('pt-PT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
+                {viewMode === 'timeline' && `${currentDate.toLocaleDateString('pt-PT', { day: 'numeric', month: 'short' })} ⎯ Timeline de Doutores`}
               </h2>
 
               <button 
@@ -763,7 +763,7 @@ export default function AppointmentsCenter({
                         className={`p-2 rounded-xl transition-all cursor-pointer hover:bg-blue-5/30 ${isSelected ? 'bg-blue-50/70 border border-blue-200' : ''}`}
                       >
                         <span className="text-[10px] font-bold text-gray-400 uppercase block mb-0.5">
-                          {day.toLocaleDateString('pt-BR', { weekday: 'short' })}
+                          {day.toLocaleDateString('pt-PT', { weekday: 'short' })}
                         </span>
                         <span className={`text-md font-extrabold w-7 h-7 flex items-center justify-center mx-auto rounded-full ${isSelected ? 'bg-blue-600 text-white shadow-xs' : 'text-gray-700'}`}>
                           {day.getDate()}
@@ -1305,7 +1305,7 @@ export default function AppointmentsCenter({
                     {/* Treatment info */}
                     <td className="p-4">
                       <span className="text-gray-900 block font-semibold">{app.treatment}</span>
-                      <span className="text-[10px] text-gray-400 font-normal block">Valor estimado: R$ {app.price?.toLocaleString('pt-BR') || '450'}</span>
+                      <span className="text-[10px] text-gray-400 font-normal block">Valor estimado: € {app.price?.toLocaleString('pt-PT') || '450'}</span>
                     </td>
 
                     {/* Assigned Dentist */}

@@ -24,7 +24,8 @@ import {
   AlertTriangle,
   Send,
   UserCheck,
-  UserPlus
+  UserPlus,
+  Menu
 } from 'lucide-react';
 import { 
   ResponsiveContainer, 
@@ -85,6 +86,9 @@ export default function ClinicDashboard({
   // Sidebar states
   const [activeTab, setActiveTab] = useState<'dashboard' | 'appointments' | 'patients' | 'dentists' | 'financial' | 'services'>('dashboard');
   
+  // Mobile menu state
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   // Search state
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -254,8 +258,21 @@ export default function ClinicDashboard({
   return (
     <div className="min-h-screen bg-[#f8f9ff] text-[#0b1c30] flex font-sans overflow-x-hidden">
       
+      {/* Mobile Sidebar Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-slate-900/50 z-40 lg:hidden backdrop-blur-sm"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+        )}
+      </AnimatePresence>
+
       {/* LEFT SIDEBAR - Matching the DentaFlow Mockup */}
-      <aside className="w-64 bg-white border-r border-gray-100 flex flex-col shrink-0 justify-between">
+      <aside className={`fixed lg:sticky top-0 h-screen w-64 bg-white border-r border-gray-100 flex flex-col shrink-0 justify-between z-50 transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
         <div>
           {/* Logo Brand Header */}
           <div className="p-6 border-b border-gray-50 flex items-center justify-between">
@@ -369,23 +386,31 @@ export default function ClinicDashboard({
       <main className="flex-grow flex flex-col min-w-0">
         
         {/* HEADER BAR */}
-        <header className="h-16 bg-white border-b border-gray-50 px-8 flex justify-between items-center shrink-0 z-30">
-          <div className="w-96 relative">
-            <Search className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
-            <input 
-              type="text" 
-              placeholder="Pesquisar consultas, pacientes cadastrados ou tratamentos..." 
-              value={searchQuery}
-              onChange={e => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 border border-gray-100 focus:border-blue-400 focus:outline-none rounded-2xl text-xs transition-colors bg-gray-50"
-            />
+        <header className="h-16 bg-white border-b border-gray-50 px-4 md:px-8 flex justify-between items-center shrink-0 z-30 sticky top-0">
+          <div className="flex items-center gap-3">
+            <button 
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="lg:hidden p-2 -ml-2 text-gray-500 hover:text-[#0b1c30] hover:bg-gray-50 rounded-lg cursor-pointer"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+            <div className="w-48 md:w-96 relative hidden sm:block">
+              <Search className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+              <input 
+                type="text" 
+                placeholder="Pesquisar consultas ou pacientes..." 
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                className="w-full pl-9 pr-4 py-2 border border-gray-100 focus:border-blue-400 focus:outline-none rounded-2xl text-xs transition-colors bg-gray-50"
+              />
+            </div>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 md:gap-6">
             <a 
               href="#help" 
               onClick={(e) => { e.preventDefault(); alert("Fale com o suporte técnico DentaFlow pelo ramal: 110-DENTAL."); }}
-              className="text-xs font-medium text-gray-400 hover:text-[#0b1c30] flex items-center gap-1.5 transition-colors"
+              className="hidden sm:flex text-xs font-medium text-gray-400 hover:text-[#0b1c30] items-center gap-1.5 transition-colors"
             >
               <HelpCircle className="w-4 h-4" /> Central de Ajuda
             </a>
@@ -419,27 +444,27 @@ export default function ClinicDashboard({
         </header>
 
         {/* INNER SCROLLABLE CONTENT */}
-        <div className="p-8 flex-grow overflow-y-auto space-y-8 max-w-7xl w-full mx-auto">
+        <div className="p-4 md:p-8 flex-grow overflow-y-auto space-y-8 max-w-7xl w-full mx-auto">
           
           {/* TAB 1: DASHBOARD VIEW */}
           {activeTab === 'dashboard' && (
-            <div className="space-y-8 animate-fade-in">
+            <div className="space-y-6 md:space-y-8 animate-fade-in">
               
               {/* HEADING WELCOME */}
-              <div className="flex justify-between items-end">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
                 <div>
-                  <h1 className="text-3xl font-semibold tracking-tight text-[#0b1c30]">Overview Clínico</h1>
+                  <h1 className="text-2xl md:text-3xl font-semibold tracking-tight text-[#0b1c30]">Overview Clínico</h1>
                   <p className="text-xs text-[#434655] mt-1">Bem-vindo de volta, Dr. Jenkins. Eis o status de faturamento e agendamentos de hoje, 21 de Maio.</p>
                 </div>
                 
-                <div className="flex gap-3 text-xs">
+                <div className="flex flex-wrap sm:flex-nowrap gap-3 text-xs w-full sm:w-auto">
                   <button 
                     onClick={() => alert("Relatório clínico consolidado exportado para PDF na pasta local.")}
-                    className="px-4 py-2 border border-gray-200 hover:bg-gray-50 text-gray-700 font-semibold rounded-lg flex items-center gap-1.5 transition-colors"
+                    className="flex-1 sm:flex-none px-4 py-2 border border-gray-200 hover:bg-gray-50 text-gray-700 font-semibold rounded-lg flex items-center justify-center gap-1.5 transition-colors"
                   >
                     Exportar Planilha
                   </button>
-                  <span className="px-4 py-2 bg-white border border-gray-100 text-[#2563eb] font-semibold rounded-lg flex items-center gap-1.5">
+                  <span className="flex-1 sm:flex-none px-4 py-2 bg-white border border-gray-100 text-[#2563eb] font-semibold rounded-lg flex items-center justify-center gap-1.5">
                     Maio, 2026
                   </span>
                 </div>
@@ -451,12 +476,12 @@ export default function ClinicDashboard({
                 <div className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-blue-100 transition-all flex justify-between items-start">
                   <div>
                     <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Faturamento do Mês</span>
-                    <h3 className="text-2xl font-bold text-[#0b1c30] mt-2">R$ {currentRevenue.toLocaleString('pt-BR')}</h3>
+                    <h3 className="text-2xl font-bold text-[#0b1c30] mt-2">€ {currentRevenue.toLocaleString('pt-PT')}</h3>
                     <div className="mt-4 inline-flex items-center gap-1 py-0.5 px-2 rounded-full bg-[#10b981]/15 text-[#10b981] text-[10px] font-semibold">
                       <span>+12.5%</span> <span className="text-gray-400 font-normal">vs último mês</span>
                     </div>
                   </div>
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold">R$</div>
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold">€</div>
                 </div>
 
                 <div className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-blue-100 transition-all flex justify-between items-start">
@@ -509,7 +534,7 @@ export default function ClinicDashboard({
                 <div className="lg:col-span-8 bg-white p-6 rounded-2xl border border-gray-100">
                   <div className="flex justify-between items-center mb-6">
                     <div>
-                      <h3 className="text-sm font-semibold tracking-tight text-[#0b1c30]">Evolutivo de Faturamento (R$)</h3>
+                      <h3 className="text-sm font-semibold tracking-tight text-[#0b1c30]">Evolutivo de Faturamento (€)</h3>
                       <span className="text-[10px] text-gray-400">Receita consolidada de faturamento mensal</span>
                     </div>
                     <div className="w-1.5 h-6 text-gray-300 font-bold block cursor-pointer">···</div>
@@ -523,8 +548,8 @@ export default function ClinicDashboard({
                       >
                         <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
                         <XAxis dataKey="month" stroke="#94a3b8" />
-                        <YAxis stroke="#94a3b8" tickFormatter={(v) => `R$ ${v/1000}k`} />
-                        <Tooltip formatter={(value: any) => [`R$ ${Number(value).toLocaleString('pt-BR')}`, 'Faturamento']} />
+                        <YAxis stroke="#94a3b8" tickFormatter={(v) => `€ ${v/1000}k`} />
+                        <Tooltip formatter={(value: any) => [`€ ${Number(value).toLocaleString('pt-PT')}`, 'Faturamento']} />
                         <Line 
                           type="monotone" 
                           dataKey="Revenue" 
@@ -858,7 +883,7 @@ export default function ClinicDashboard({
                     >
                       {services.filter(s => s.status === 'Active').length > 0 ? (
                         services.filter(s => s.status === 'Active').map(s => (
-                          <option key={s.id} value={s.name}>{s.name} (R$ {s.price})</option>
+                          <option key={s.id} value={s.name}>{s.name} (€ {s.price})</option>
                         ))
                       ) : (
                         <>

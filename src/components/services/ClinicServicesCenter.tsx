@@ -391,7 +391,7 @@ export default function ClinicServicesCenter({
             <TrendingUp className="w-4 h-4 text-emerald-500 animate-pulse" />
           </div>
           <h3 className="text-3xl font-extrabold text-[#0b1c30] mt-2 leading-none">
-            R$ {stats.totalIncome.toLocaleString('pt-BR')}
+            € {stats.totalIncome.toLocaleString('pt-PT')}
           </h3>
           <p className="text-[10px] text-gray-400 font-semibold mt-3">
             Receita total rastreada sob faturamento médico.
@@ -532,7 +532,7 @@ export default function ClinicServicesCenter({
                   </div>
                   <div>
                     <span className="text-[8px] text-gray-400 uppercase font-sans font-bold block mb-0.5">Preço Base</span>
-                    <strong className="text-xs text-blue-600 font-black">R$ {srv.price}</strong>
+                    <strong className="text-xs text-blue-600 font-black">€ {srv.price}</strong>
                   </div>
                 </div>
 
@@ -873,7 +873,7 @@ export default function ClinicServicesCenter({
                         </div>
                         <div>
                           <span className="text-[8px] text-gray-400 font-bold block uppercase font-sans">VALOR BASE</span>
-                          <strong className="text-blue-600">R$ {serviceForm.price || 0}</strong>
+                          <strong className="text-blue-600">€ {serviceForm.price || 0}</strong>
                         </div>
                       </div>
 

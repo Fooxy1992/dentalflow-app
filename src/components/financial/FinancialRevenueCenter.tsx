@@ -307,7 +307,7 @@ export default function FinancialRevenueCenter({
     }
 
     setFinancialNotification({
-      message: `Transação de R$ ${paymentForm.amount.toLocaleString('pt-BR')} do paciente ${paymentForm.patientName} registrada com sucesso!`,
+      message: `Transação de € ${paymentForm.amount.toLocaleString('pt-PT')} do paciente ${paymentForm.patientName} registrada com sucesso!`,
       type: 'success'
     });
     setTimeout(() => setFinancialNotification(null), 4000);
@@ -341,7 +341,7 @@ export default function FinancialRevenueCenter({
     saveExpensesToLocal(updated);
 
     setFinancialNotification({
-      message: `Nova despesa de R$ ${expenseForm.amount.toLocaleString('pt-BR')} para ${expenseForm.supplier} gravada sob categoria ${expenseForm.category}.`,
+      message: `Nova despesa de € ${expenseForm.amount.toLocaleString('pt-PT')} para ${expenseForm.supplier} gravada sob categoria ${expenseForm.category}.`,
       type: 'success'
     });
     setTimeout(() => setFinancialNotification(null), 5000);
@@ -450,7 +450,7 @@ export default function FinancialRevenueCenter({
             <TrendingUp className="w-4 h-4 text-emerald-500 shrink-0" />
           </div>
           <h3 className="text-2xl font-extrabold text-[#0b1c30] mt-2 leading-none">
-            R$ {(totalRevenue + 85000).toLocaleString('pt-BR')}
+            € {(totalRevenue + 85000).toLocaleString('pt-PT')}
           </h3>
           <p className="text-[10px] text-gray-400 font-semibold mt-3">
             <span className="text-emerald-500">+12%</span> em relação à meta de clínica estabelicida.
@@ -465,7 +465,7 @@ export default function FinancialRevenueCenter({
             <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
           </div>
           <h3 className="text-2xl font-extrabold text-[#0b1c30] mt-2 leading-none">
-            R$ {(netClinicProfit + 73000).toLocaleString('pt-BR')}
+            € {(netClinicProfit + 73000).toLocaleString('pt-PT')}
           </h3>
           <p className="text-[10px] text-gray-400 font-semibold mt-3">
             Margem EBITDA estimada em <span className="text-[#2563eb] font-bold">~82.4%</span>.
@@ -480,7 +480,7 @@ export default function FinancialRevenueCenter({
             <Clock className="w-4 h-4 text-amber-500 shrink-0" />
           </div>
           <h3 className="text-2xl font-extrabold text-[#0b1c30] mt-2 leading-none">
-            R$ {totalPending.toLocaleString('pt-BR')}
+            € {totalPending.toLocaleString('pt-PT')}
           </h3>
           <p className="text-[10px] text-gray-400 font-semibold mt-3">
             Em faturas no gateway aguardando Pix ou compensação.
@@ -495,7 +495,7 @@ export default function FinancialRevenueCenter({
             <TrendingDown className="w-4 h-4 text-rose-500 shrink-0" />
           </div>
           <h3 className="text-2xl font-extrabold text-[#0b1c30] mt-2 leading-none">
-            R$ {totalExpensesComputed.toLocaleString('pt-BR')}
+            € {totalExpensesComputed.toLocaleString('pt-PT')}
           </h3>
           <p className="text-[10px] text-gray-400 font-semibold mt-3">
             Materiais estéticos e faturados laboratoriais.
@@ -510,7 +510,7 @@ export default function FinancialRevenueCenter({
             <AlertCircle className="w-4 h-4 text-red-500 shrink-0" />
           </div>
           <h3 className="text-2xl font-extrabold text-[#0b1c30] mt-2 leading-none">
-            R$ {totalOverdue.toLocaleString('pt-BR')}
+            € {totalOverdue.toLocaleString('pt-PT')}
           </h3>
           <p className="text-[10px] text-gray-400 font-semibold mt-3">
             Cobranças com status <span className="text-rose-600 font-black">Vencido</span> ativo.
@@ -631,7 +631,7 @@ export default function FinancialRevenueCenter({
                             <Cell key={`cell-${index}`} fill={entry.color} />
                           ))}
                         </Pie>
-                        <Tooltip formatter={(value) => `R$ ${Number(value).toLocaleString('pt-BR')}`} />
+                        <Tooltip formatter={(value) => `€ ${Number(value).toLocaleString('pt-PT')}`} />
                       </PieChart>
                     </ResponsiveContainer>
                   </div>
@@ -645,7 +645,7 @@ export default function FinancialRevenueCenter({
                         <span className="w-2.5 h-2.5 rounded-full block shrink-0" style={{ backgroundColor: entry.color }}></span>
                         {entry.name}
                       </span>
-                      <span className="text-gray-800 font-mono">R$ {entry.value.toLocaleString('pt-BR')}</span>
+                      <span className="text-gray-800 font-mono">€ {entry.value.toLocaleString('pt-PT')}</span>
                     </div>
                   ))}
                 </div>
@@ -723,14 +723,14 @@ export default function FinancialRevenueCenter({
                     <div className="flex justify-between items-center text-xs border-b border-gray-50 pb-2">
                       <span className="text-gray-500 font-semibold">Total Dedução de Comissões:</span>
                       <strong className="text-[#0b1c30] font-extrabold">
-                        R$ {Math.floor((totalRevenue + 85000) * (commissionRate / 100)).toLocaleString('pt-BR')}
+                        € {Math.floor((totalRevenue + 85000) * (commissionRate / 100)).toLocaleString('pt-PT')}
                       </strong>
                     </div>
 
                     <div className="flex justify-between items-center text-xs">
                       <span className="text-gray-500 font-semibold">Faturamento Clínico Líquido Retido:</span>
                       <strong className="text-emerald-600 font-extrabold">
-                        R$ {Math.floor((totalRevenue + 85000) * ((100 - commissionRate) / 100)).toLocaleString('pt-BR')}
+                        € {Math.floor((totalRevenue + 85000) * ((100 - commissionRate) / 100)).toLocaleString('pt-PT')}
                       </strong>
                     </div>
                   </div>
@@ -855,7 +855,7 @@ export default function FinancialRevenueCenter({
                             <td className="p-4 text-slate-700">{tx.treatment}</td>
                             <td className="p-4 text-gray-400 font-mono text-[10px]">{tx.date}</td>
                             <td className="p-4 text-[#0b1c30] font-black">
-                              R$ {tx.amount.toLocaleString('pt-BR')}
+                              € {tx.amount.toLocaleString('pt-PT')}
                             </td>
                             <td className="p-4">
                               <button
@@ -906,7 +906,7 @@ export default function FinancialRevenueCenter({
                                   </div>
                                   <div>
                                     <span className="text-[9px] text-indigo-600 font-extrabold uppercase block mb-1">Deduções Tributárias (ISS 5%)</span>
-                                    <strong className="text-[#0b1c30]">R$ {extraDetails.vatTax.toLocaleString('pt-BR')}</strong>
+                                    <strong className="text-[#0b1c30]">€ {extraDetails.vatTax.toLocaleString('pt-PT')}</strong>
                                   </div>
                                   <div>
                                     <span className="text-[9px] text-amber-600 font-extrabold uppercase block mb-1">Plano Aplicado / Convênio</span>
@@ -998,7 +998,7 @@ export default function FinancialRevenueCenter({
 
                       <div className="text-right flex flex-col items-end gap-1.5">
                         <span className="text-[#0b1c30] font-black text-sm">
-                          R$ {exp.amount.toLocaleString('pt-BR')}
+                          € {exp.amount.toLocaleString('pt-PT')}
                         </span>
                         
                         <div className="flex items-center gap-1.5">
@@ -1086,16 +1086,16 @@ export default function FinancialRevenueCenter({
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-xs font-semibold">
                         <div>
                           <span className="text-[9px] text-gray-400 block font-bold uppercase">FATURAMENTO CLINICO BRUTO</span>
-                          <span className="text-slate-700 font-extrabold">R$ {value.toLocaleString('pt-BR')}</span>
+                          <span className="text-slate-700 font-extrabold">€ {value.toLocaleString('pt-PT')}</span>
                         </div>
                         <div>
                           <span className="text-[9px] text-[#2563eb] block font-bold uppercase">COMISSÃO REVERBERADA ({commissionRate}%)</span>
-                          <span className="text-[#2563eb] font-extrabold">R$ {calculatedCommissionVal.toLocaleString('pt-BR')}</span>
+                          <span className="text-[#2563eb] font-extrabold">€ {calculatedCommissionVal.toLocaleString('pt-PT')}</span>
                         </div>
                         <div className="col-span-2 md:col-span-1">
                           <span className="text-[9px] text-emerald-600 block font-bold uppercase">PROVEITO RETIDO CLÍNICA</span>
                           <span className="text-emerald-600 font-extrabold">
-                            R$ {(value - calculatedCommissionVal).toLocaleString('pt-BR')}
+                            € {(value - calculatedCommissionVal).toLocaleString('pt-PT')}
                           </span>
                         </div>
                       </div>
@@ -1103,7 +1103,7 @@ export default function FinancialRevenueCenter({
                       {/* Pay control options button */}
                       <button 
                         onClick={() => {
-                          alert(`Fechamento financeiro do profissional ${dentist.name} processado! Um comprovante Pix de R$ ${calculatedCommissionVal.toLocaleString('pt-BR')} de comissão foi gerado com sucesso.`);
+                          alert(`Fechamento financeiro do profissional ${dentist.name} processado! Um comprovante Pix de € ${calculatedCommissionVal.toLocaleString('pt-PT')} de comissão foi gerado com sucesso.`);
                         }}
                         className="bg-[#2563eb] hover:bg-blue-700 text-white font-extrabold text-[10px] py-1.5 px-3.5 rounded-lg transition-colors cursor-pointer shrink-0"
                       >
@@ -1175,7 +1175,7 @@ export default function FinancialRevenueCenter({
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[9px] uppercase font-bold text-gray-400 mb-1">Valor do Procedimento (R$)</label>
+                    <label className="block text-[9px] uppercase font-bold text-gray-400 mb-1">Valor do Procedimento (€)</label>
                     <input 
                       type="number" 
                       required
@@ -1287,7 +1287,7 @@ export default function FinancialRevenueCenter({
                     </select>
                   </div>
                   <div>
-                    <label className="block text-[9px] uppercase font-bold text-gray-400 mb-1">Total Despesa (R$)</label>
+                    <label className="block text-[9px] uppercase font-bold text-gray-400 mb-1">Total Despesa (€)</label>
                     <input 
                       type="number" 
                       required
@@ -1408,15 +1408,15 @@ export default function FinancialRevenueCenter({
                   <div className="border-t border-dashed border-gray-200 pt-3 space-y-1 text-xs">
                     <div className="flex justify-between">
                       <span>Subtotal Repasse:</span>
-                      <span>R$ {selectedInvoiceTx.amount.toLocaleString('pt-BR')}</span>
+                      <span>€ {selectedInvoiceTx.amount.toLocaleString('pt-PT')}</span>
                     </div>
                     <div className="flex justify-between text-gray-450">
                       <span>Tributos Retidos na Fonte (5% ISS):</span>
-                      <span>R$ {Math.floor(selectedInvoiceTx.amount * 0.05).toLocaleString('pt-BR')}</span>
+                      <span>€ {Math.floor(selectedInvoiceTx.amount * 0.05).toLocaleString('pt-PT')}</span>
                     </div>
                     <div className="flex justify-between text-[#0b1c30] font-extrabold font-mono pt-1 text-sm">
                       <span>TOTAL LÍQUIDO AUTORIZADO:</span>
-                      <span>R$ {selectedInvoiceTx.amount.toLocaleString('pt-BR')}</span>
+                      <span>€ {selectedInvoiceTx.amount.toLocaleString('pt-PT')}</span>
                     </div>
                   </div>
 

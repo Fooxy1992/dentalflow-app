@@ -285,7 +285,7 @@ export default function PublicLanding({ services, dentists, onAddAppointment, on
                 <p className="text-sm text-[#43474c] leading-relaxed mb-6">{treatment.description}</p>
               </div>
               <div className="flex justify-between items-center pt-4 border-t border-gray-50">
-                <span className="text-xs text-[#74777d]">Valor Estimado: R$ {treatment.price.toLocaleString('pt-BR')}</span>
+                <span className="text-xs text-[#74777d]">Valor Estimado: € {treatment.price.toLocaleString('pt-PT')}</span>
                 <a 
                   href="#booking" 
                   onClick={() => setFormData(prev => ({ ...prev, treatment: treatment.name }))}
