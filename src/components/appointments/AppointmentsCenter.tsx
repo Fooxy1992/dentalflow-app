@@ -740,10 +740,10 @@ export default function AppointmentsCenter({
             </div>
 
             {/* Quick Helper badge info */}
-            <div className="flex items-center gap-4 text-[10px] text-gray-400 font-semibold uppercase tracking-wider">
-              <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 bg-indigo-600 rounded"></span> Dr. Sarah</span>
-              <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 bg-emerald-600 rounded"></span> Dr. Marcus</span>
-              <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 bg-purple-600 rounded"></span> Dra. Emily</span>
+            <div className="flex flex-wrap items-center gap-3 md:gap-4 text-[10px] text-gray-400 font-semibold uppercase tracking-wider">
+              <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 bg-indigo-600 rounded min-w-[10px]"></span> Dr. Sarah</span>
+              <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 bg-emerald-600 rounded min-w-[10px]"></span> Dr. Marcus</span>
+              <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 bg-purple-600 rounded min-w-[10px]"></span> Dra. Emily</span>
             </div>
           </div>
 
@@ -752,7 +752,7 @@ export default function AppointmentsCenter({
             <div className="overflow-x-auto">
               <div className="min-w-[800px]">
                 {/* Week Header */}
-                <div className="grid grid-cols-[auto_repeat(7,1fr)] border-b border-gray-100 pb-3 text-center">
+                <div className="grid grid-cols-[80px_repeat(7,1fr)] border-b border-gray-100 pb-3 text-center">
                   <div className="text-left text-[10px] font-bold text-gray-400 uppercase tracking-widest pt-2.5 pl-2">Horário</div>
                   {weekDays.map((day, dIdx) => {
                     const isSelected = formatDateString(day) === selectedDateStr;
@@ -778,7 +778,7 @@ export default function AppointmentsCenter({
                   {timeSlots.map((slot, sIdx) => {
                     const isLunchHour = slot === "12:00 PM";
                     return (
-                      <div key={sIdx} className="grid grid-cols-[auto_repeat(7,1fr)] items-stretch min-h-[55px]">
+                      <div key={sIdx} className="grid grid-cols-[80px_repeat(7,1fr)] items-stretch min-h-[55px]">
                         
                         {/* Hour marker column */}
                         <div className="py-3 text-[11px] font-bold text-gray-400 flex flex-col justify-start">
@@ -868,7 +868,7 @@ export default function AppointmentsCenter({
           {viewMode === 'day' && (
             <div className="overflow-x-auto">
               <div className="min-w-[600px] space-y-4">
-                <div className="grid grid-cols-4 border-b border-gray-100 pb-3 text-center">
+                <div className="grid grid-cols-[80px_repeat(3,1fr)] border-b border-gray-100 pb-3 text-center">
                   <div className="text-left text-[10px] font-bold text-gray-400 uppercase tracking-widest pl-2">Horários</div>
                   {dentists.map((doc, dIdx) => {
                     return (
@@ -890,7 +890,7 @@ export default function AppointmentsCenter({
                   {timeSlots.map((slot, sIdx) => {
                     const isLunchHour = slot === "12:00 PM";
                     return (
-                      <div key={sIdx} className="grid grid-cols-4 items-stretch min-h-[60px]">
+                      <div key={sIdx} className="grid grid-cols-[80px_repeat(3,1fr)] items-stretch min-h-[60px]">
                         
                         {/* Hour stamp column */}
                         <div className="py-4 text-[11px] font-bold text-gray-400 flex flex-col justify-start">
@@ -979,18 +979,19 @@ export default function AppointmentsCenter({
               }
 
               return (
-                <div className="space-y-4">
-                  <div className="grid grid-cols-7 text-center font-bold text-[10px] text-gray-400 uppercase tracking-widest">
-                    <div>Dom</div>
-                    <div>Seg</div>
-                    <div>Ter</div>
-                    <div>Qua</div>
-                    <div>Qui</div>
-                    <div>Sex</div>
-                    <div>Sáb</div>
-                  </div>
+                <div className="space-y-4 overflow-x-auto">
+                  <div className="min-w-[500px]">
+                    <div className="grid grid-cols-7 text-center font-bold text-[10px] text-gray-400 uppercase tracking-widest pb-3">
+                      <div>Dom</div>
+                      <div>Seg</div>
+                      <div>Ter</div>
+                      <div>Qua</div>
+                      <div>Qui</div>
+                      <div>Sex</div>
+                      <div>Sáb</div>
+                    </div>
 
-                  <div className="grid grid-cols-7 gap-2">
+                    <div className="grid grid-cols-7 gap-2">
                     {dayCells.map((cell, idx) => {
                       if (!cell) return <div key={idx} className="bg-slate-50/20 aspect-video rounded-xl border border-gray-50/50"></div>;
                       
@@ -1033,6 +1034,7 @@ export default function AppointmentsCenter({
                     })}
                   </div>
                 </div>
+              </div>
               );
             })()
           )}

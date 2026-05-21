@@ -89,6 +89,9 @@ export default function ClinicDashboard({
   // Mobile menu state
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // Notifications dropdown state
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+
   // Search state
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -417,14 +420,83 @@ export default function ClinicDashboard({
 
             <div className="relative">
               <button 
-                onClick={() => alert(`Você tem ${appointments.filter(a => a.status === 'Pending').length} novas consultas pendentes para sua revisão de agenda hoje!`)}
-                className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-[#0b1c30] hover:bg-blue-50 hover:text-blue-600 transition-colors relative"
+                onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
+                className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors relative ${isNotificationsOpen ? 'bg-blue-50 text-blue-600' : 'bg-gray-50 text-[#0b1c30] hover:bg-blue-50 hover:text-blue-600'}`}
               >
                 <Bell className="w-4 h-4" />
                 {appointments.filter(a => a.status === 'Pending').length > 0 && (
-                  <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                  <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-red-500 animate-pulse border-2 border-white"></span>
                 )}
               </button>
+              
+              {/* Avisos de Próximas Consultas Dropdown */}
+              <AnimatePresence>
+                {isNotificationsOpen && (
+                  <>
+                    <div className="fixed inset-0 z-40" onClick={() => setIsNotificationsOpen(false)}></div>
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute right-0 top-full mt-2 w-80 bg-white rounded-2xl shadow-xl border border-gray-100 flex flex-col overflow-hidden z-50 text-left"
+                    >
+                      <div className="p-4 border-b border-gray-50 bg-[#f8fafc] flex justify-between items-center">
+                        <h4 className="text-xs font-bold text-[#0b1c30] uppercase tracking-wider flex items-center gap-1.5">
+                          <Bell className="w-3.5 h-3.5 text-blue-500" />
+                          Aviso de Consultas
+                        </h4>
+                        <span className="text-[10px] font-bold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">
+                          {appointments.filter(a => a.status === 'Pending').length} Novas
+                        </span>
+                      </div>
+                      
+                      <div className="max-h-[320px] overflow-y-auto divide-y divide-gray-50 p-2">
+                        {appointments.filter(a => a.status === 'Pending').length > 0 ? (
+                          appointments.filter(a => a.status === 'Pending').slice(0, 5).map((app, idx) => (
+                            <div key={idx} className="p-3 hover:bg-gray-50 rounded-xl cursor-pointer transition-colors space-y-1">
+                              <div className="flex justify-between items-start mb-1">
+                                <span className="text-xs font-extrabold text-[#0b1c30] truncate pr-2">{app.patientName}</span>
+                                <span className="text-[10px] font-bold text-red-500 shrink-0 bg-red-50 px-1.5 py-0.5 rounded flex items-center gap-1">
+                                  Pendente
+                                </span>
+                              </div>
+                              <div className="flex items-center gap-3 text-[10px] text-gray-500">
+                                <div className="flex items-center gap-1">
+                                  <Calendar className="w-3 h-3" />
+                                  <span>{app.date} • {app.time}</span>
+                                </div>
+                              </div>
+                              <div className="text-[10px] text-gray-400 truncate mt-1">
+                                <span className="font-medium text-[#2563eb]">{app.treatment}</span> com Dr(a). {app.dentistName.split(' ')[1]}
+                              </div>
+                            </div>
+                          ))
+                        ) : (
+                          <div className="p-6 text-center text-gray-400">
+                            <Check className="w-6 h-6 mx-auto mb-2 text-gray-200" />
+                            <p className="text-xs">Nenhum aviso pendente.<br/>Tudo sob controle!</p>
+                          </div>
+                        )}
+                      </div>
+                      
+                      {appointments.filter(a => a.status === 'Pending').length > 0 && (
+                        <div className="p-3 border-t border-gray-50 bg-gray-50/50">
+                          <button 
+                            onClick={() => {
+                              setIsNotificationsOpen(false);
+                              setActiveTab('appointments');
+                            }}
+                            className="w-full py-2 bg-white border border-gray-200 hover:bg-gray-50 text-xs font-bold text-[#0b1c30] rounded-xl transition-colors cursor-pointer"
+                          >
+                            Ir para Centro de Agendamentos
+                          </button>
+                        </div>
+                      )}
+                    </motion.div>
+                  </>
+                )}
+              </AnimatePresence>
             </div>
 
             <div className="flex items-center gap-3 border-l border-gray-100 pl-6">
