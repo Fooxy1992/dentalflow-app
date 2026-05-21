@@ -522,7 +522,7 @@ export default function PatientRecordsCenter({
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <button 
             onClick={() => setShowRegisterModal(true)}
             className="bg-[#2563eb] hover:bg-blue-700 text-white rounded-xl py-2.5 px-4.5 text-xs font-bold transition-all shadow-sm flex items-center gap-1.5 shrink-0 cursor-pointer"
@@ -533,7 +533,7 @@ export default function PatientRecordsCenter({
       </div>
 
       {/* 2. PREMIUM CLINICAL STATS PANEL */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         
         {/* Stat 1: Total Patients */}
         <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-xs flex items-center gap-4">
@@ -663,7 +663,7 @@ export default function PatientRecordsCenter({
                       <div className="absolute top-0 right-0 w-3 h-3 bg-red-500 rounded-bl-lg"></div>
                     )}
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-wrap items-center gap-3">
                       <img 
                         src={extra.avatarUrl || DEFAULT_AVATAR} 
                         alt={patient.name} 
@@ -672,7 +672,7 @@ export default function PatientRecordsCenter({
                       />
                       
                       <div className="min-w-0 flex-1">
-                        <div className="flex items-center justify-between">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
                           <span className="font-extrabold text-xs text-[#0b1c30] truncate block">
                             {patient.name}
                           </span>
@@ -744,7 +744,7 @@ export default function PatientRecordsCenter({
                   </div>
 
                   {/* Core Demographics & Info list */}
-                  <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-6 text-xs text-left">
+                  <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-6 text-xs text-left">
                     <div>
                       <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider block">Gênero / Sexo</span>
                       <span className="font-semibold text-gray-700">{activeExtras.genderName}</span>
@@ -774,7 +774,7 @@ export default function PatientRecordsCenter({
                       <span className="font-semibold text-gray-700 truncate block max-w-[160px]">{activeExtras.insurance}</span>
                       <span className="text-[10px] text-gray-400 block font-mono">Num: {activeExtras.insuranceNum}</span>
                     </div>
-                    <div className="col-span-2 md:col-span-3 border-t border-dashed border-gray-100/80 pt-4 grid grid-cols-2 gap-4">
+                    <div className="col-span-2 md:col-span-3 border-t border-dashed border-gray-100/80 pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <span className="text-[10px] text-red-500 font-bold uppercase tracking-wider block flex items-center gap-1">
                           <AlertTriangle className="w-3 h-3 animate-bounce" /> Alergias / Alertas Médicos
@@ -907,7 +907,7 @@ export default function PatientRecordsCenter({
                 {/* 3. TAB CONTENT: INTERACTIVE DENTAL CHART */}
                 {activeSegment === 'odonto' && (
                   <div className="bg-white border border-gray-150 rounded-2xl p-6 shadow-sm text-left space-y-5">
-                    <div className="border-b border-gray-100 pb-3 flex justify-between items-center">
+                    <div className="border-b border-gray-100 pb-3 flex flex-col sm:flex-row justify-between sm:items-center items-start gap-4">
                       <div>
                         <h3 className="text-sm font-bold text-[#0b1c30]">Mapa Dental Clínico ISO (Odontograma Clínico)</h3>
                         <p className="text-xs text-gray-500 mt-0.5">Clique diretamente em cima dos elementos dentários para ciclar e salvar diagnósticos.</p>
@@ -989,7 +989,7 @@ export default function PatientRecordsCenter({
                     </div>
 
                     {/* Legend keys block */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 bg-slate-50 p-4 rounded-xl text-xs font-semibold">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 bg-slate-50 p-4 rounded-xl text-xs font-semibold">
                       <div className="flex items-center gap-2">
                         <span className="w-4 h-4 rounded-md bg-white border border-gray-300 block shadow-3xs"></span>
                         <span className="text-gray-600">Elemento Saudável / Livre</span>
@@ -1224,7 +1224,7 @@ export default function PatientRecordsCenter({
                         {activeExtras.files.length > 0 ? (
                           activeExtras.files.map(file => (
                             <div key={file.id} className="bg-white border border-gray-150 rounded-xl p-4 flex items-center justify-between shadow-3xs">
-                              <div className="flex items-center gap-3">
+                              <div className="flex flex-wrap items-center gap-3">
                                 <div className="w-9 h-9 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center font-bold text-xs uppercase">
                                   {file.type}
                                 </div>
@@ -1278,10 +1278,10 @@ export default function PatientRecordsCenter({
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white rounded-3xl w-full max-w-2xl border border-gray-100 shadow-xl overflow-hidden"
+              className="bg-white rounded-3xl w-full max-w-2xl border max-h-[90vh] overflow-y-auto border-gray-100 shadow-xl overflow-hidden"
             >
               
-              <div className="bg-slate-900 px-6 py-5 text-white flex justify-between items-center">
+              <div className="bg-slate-900 px-6 py-5 text-white flex flex-col sm:flex-row justify-between sm:items-center items-start gap-4">
                 <div>
                   <h3 className="text-md font-extrabold flex items-center gap-1.5">
                     <Users className="w-5 h-5 text-blue-400" /> Cadastrar Ficha do Paciente (EHR)
@@ -1334,7 +1334,7 @@ export default function PatientRecordsCenter({
                     />
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                       <label className="block text-[10px] uppercase font-bold text-gray-400 mb-1.5">Idade</label>
                       <input 
@@ -1373,7 +1373,7 @@ export default function PatientRecordsCenter({
                     </select>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                       <label className="block text-[10px] uppercase font-bold text-gray-400 mb-1.5">Sangue</label>
                       <select 

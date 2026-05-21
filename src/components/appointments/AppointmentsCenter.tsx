@@ -422,22 +422,22 @@ export default function AppointmentsCenter({
     <div className="space-y-8 animate-fade-in text-[#0b1c30]">
       
       {/* 1. HEADER SECTION & MAIN CONTROLS */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-100 pb-6">
+      <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4 border-b border-gray-100 pb-6">
         <div>
           <div className="flex items-center gap-2 text-xs text-blue-600 font-semibold mb-1">
             <span>DentaFlow Core</span>
             <ChevronRight className="w-3 h-3 text-gray-300" />
             <span className="text-gray-500 font-medium">Agendas &amp; Relacionamento</span>
           </div>
-          <h1 className="text-3xl font-bold tracking-tight text-[#0b1c30]">Consultas &amp; Centro de Agenda</h1>
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-[#0b1c30]">Consultas &amp; Centro de Agenda</h1>
           <p className="text-xs text-gray-500 mt-1">
             Gerencie o fluxo de consultas, blocos operatórios, confirmações de pacientes e cargas de trabalho clínicas em tempo real.
           </p>
         </div>
 
         {/* Header Actions */}
-        <div className="flex items-center gap-3">
-          <div className="flex bg-white border border-gray-150 rounded-xl p-1 shadow-xs shrink-0">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+          <div className="flex w-full sm:w-auto overflow-x-auto bg-white border border-gray-150 rounded-xl p-1 shadow-xs shrink-0 hide-scrollbar">
             <button 
               onClick={() => setViewMode('day')}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${viewMode === 'day' ? 'bg-[#2563eb] text-white shadow-xs' : 'text-gray-500 hover:text-[#0b1c30]'}`}
@@ -482,7 +482,7 @@ export default function AppointmentsCenter({
               setIsEditMode(false);
               setShowCreateModal(true);
             }}
-            className="bg-[#2563eb] hover:bg-blue-700 text-white rounded-xl py-2.5 px-4 text-xs font-bold transition-all shadow-sm flex items-center gap-1.5 shrink-0"
+            className="w-full sm:w-auto justify-center bg-[#2563eb] hover:bg-blue-700 text-white rounded-xl py-2.5 px-4 text-xs font-bold transition-all shadow-sm flex items-center gap-1.5 shrink-0"
           >
             <Plus className="w-4 h-4" /> Novo Agendamento
           </button>
@@ -490,7 +490,7 @@ export default function AppointmentsCenter({
       </div>
 
       {/* 2. PREMIUM STRIPE-STYLE STAT CARDS PANEL */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
         
         {/* Card 1: Today Appointments */}
         <div className="bg-white p-4.5 rounded-2xl border border-gray-100 shadow-xs hover:shadow-md transition-all flex flex-col justify-between relative overflow-hidden group">
@@ -709,7 +709,7 @@ export default function AppointmentsCenter({
           
           {/* Calendar Header Navigators */}
           <div className="flex items-center justify-between border-b border-gray-50 pb-4">
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <button 
                 onClick={handlePrevDateRange}
                 className="w-8 h-8 rounded-xl border border-gray-200 hover:bg-gray-50 flex items-center justify-center text-gray-500 hover:text-[#0b1c30] transition-all cursor-pointer"
@@ -1117,7 +1117,7 @@ export default function AppointmentsCenter({
           
           {/* Active Dentists Section */}
           <div className="bg-white border border-gray-100 rounded-3xl p-5 shadow-sm space-y-4">
-            <div className="flex justify-between items-center border-b border-gray-50 pb-3">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between items-start gap-3 border-b border-gray-50 pb-3">
               <div>
                 <h3 className="text-xs font-extrabold text-[#0b1c30] uppercase tracking-wider">Disponibilidade Médica</h3>
                 <span className="text-[9px] text-gray-400">Escala de plantão ativa hoje</span>
@@ -1166,7 +1166,7 @@ export default function AppointmentsCenter({
 
           {/* Pending Requests and Online Bookings Panel */}
           <div className="bg-white border border-gray-100 rounded-3xl p-5 shadow-sm space-y-4">
-            <div className="flex justify-between items-center border-b border-gray-50 pb-3">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between items-start gap-3 border-b border-gray-50 pb-3">
               <div>
                 <h3 className="text-xs font-extrabold text-[#0b1c30] uppercase tracking-wider">Aprovações do Site</h3>
                 <span className="text-[9px] text-[#2563eb] font-bold">Ação instantânea requerida</span>
@@ -1288,7 +1288,7 @@ export default function AppointmentsCenter({
                   <tr key={app.id} className="hover:bg-slate-50/50 transition-all font-medium">
                     {/* Patient Name / Avatar */}
                     <td className="p-4 pl-6">
-                      <div className="flex items-center gap-3">
+                      <div className="flex flex-wrap items-center gap-3">
                         <div className="w-8 h-8 rounded-full bg-blue-50 text-[#2563eb] font-extrabold flex items-center justify-center border border-blue-100 relative shrink-0">
                           {app.patientName.charAt(0)}
                           {isWebBooking && <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-500 rounded-full border border-white" title="Novidade via site"></span>}
@@ -1448,7 +1448,7 @@ export default function AppointmentsCenter({
               initial={{ scale: 0.95, y: 15 }} 
               animate={{ scale: 1, y: 0 }} 
               exit={{ scale: 0.95, y: 15 }}
-              className="bg-white rounded-3xl max-w-lg w-full p-6 space-y-6 shadow-2xl relative"
+              className="bg-white rounded-3xl max-w-lg w-full p-4 sm:p-6 max-h-[90vh] overflow-y-auto space-y-6 shadow-2xl relative"
             >
               <button 
                 onClick={() => {
@@ -1479,7 +1479,7 @@ export default function AppointmentsCenter({
                 <div className="space-y-3 p-3.5 bg-slate-50 rounded-2xl border border-gray-100">
                   <span className="text-[9px] font-extrabold text-gray-400 uppercase tracking-wider block">1. Identificação de Prontuário</span>
                   
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                       <label className="block text-[10px] font-semibold text-gray-500 mb-1">Nome Completo</label>
                       <input 
@@ -1521,7 +1521,7 @@ export default function AppointmentsCenter({
                 <div className="space-y-3 p-3.5 bg-slate-50/70 rounded-2xl border border-gray-100">
                   <span className="text-[9px] font-extrabold text-[#2563eb] uppercase tracking-wider block">2. Escala Operatória</span>
 
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                     <div>
                       <label className="block text-[10px] font-semibold text-gray-500 mb-1">Data</label>
                       <input 
@@ -1559,7 +1559,7 @@ export default function AppointmentsCenter({
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                       <label className="block text-[10px] font-semibold text-gray-500 mb-1">Dentista Especialista</label>
                       <select
@@ -1586,7 +1586,7 @@ export default function AppointmentsCenter({
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                       <label className="block text-[10px] font-semibold text-gray-500 mb-1">Espaço / Consultório</label>
                       <select

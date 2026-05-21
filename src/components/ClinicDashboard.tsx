@@ -387,7 +387,7 @@ export default function ClinicDashboard({
         
         {/* HEADER BAR */}
         <header className="h-16 bg-white border-b border-gray-50 px-4 md:px-8 flex justify-between items-center shrink-0 z-30 sticky top-0">
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <button 
               onClick={() => setIsMobileMenuOpen(true)}
               className="lg:hidden p-2 -ml-2 text-gray-500 hover:text-[#0b1c30] hover:bg-gray-50 rounded-lg cursor-pointer"
@@ -532,7 +532,7 @@ export default function ClinicDashboard({
                 
                 {/* Revenue Analytics Line Chart */}
                 <div className="lg:col-span-8 bg-white p-6 rounded-2xl border border-gray-100">
-                  <div className="flex justify-between items-center mb-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between items-start gap-3 mb-6">
                     <div>
                       <h3 className="text-sm font-semibold tracking-tight text-[#0b1c30]">Evolutivo de Faturamento (€)</h3>
                       <span className="text-[10px] text-gray-400">Receita consolidada de faturamento mensal</span>
@@ -565,7 +565,7 @@ export default function ClinicDashboard({
 
                 {/* Donut Treatment Chart */}
                 <div className="lg:col-span-4 bg-white p-6 rounded-2xl border border-gray-100 flex flex-col justify-between">
-                  <div className="flex justify-between items-center mb-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between items-start gap-3 mb-4">
                     <div>
                       <h3 className="text-sm font-semibold tracking-tight text-[#0b1c30]">Frequência de Serviços</h3>
                       <span className="text-[10px] text-gray-400">Tratamentos odontológicos requisitados</span>
@@ -783,7 +783,7 @@ export default function ClinicDashboard({
               initial={{ scale: 0.95 }} 
               animate={{ scale: 1 }} 
               exit={{ scale: 0.95 }}
-              className="bg-white rounded-2xl max-w-lg w-full p-8 shadow-2xl space-y-6"
+              className="bg-white rounded-2xl max-w-lg w-full p-4 sm:p-8 max-h-[90vh] overflow-y-auto shadow-2xl space-y-6"
             >
               <div className="flex justify-between items-center">
                 <h3 className="text-sm font-semibold text-[#0b1c30]">Agendamento Manual Interno (Walk-in/Telefone)</h3>
@@ -796,7 +796,7 @@ export default function ClinicDashboard({
               </div>
 
               <form onSubmit={handleCreateWalkin} className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[10px] uppercase font-bold text-gray-400 mb-1">Paciente</label>
                     <input 
@@ -821,7 +821,7 @@ export default function ClinicDashboard({
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div>
                     <label className="block text-[10px] uppercase font-bold text-gray-400 mb-1">Telefone</label>
                     <input 
@@ -861,7 +861,7 @@ export default function ClinicDashboard({
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[10px] uppercase font-bold text-gray-400 mb-1">Especialista Dentista</label>
                     <select
@@ -933,7 +933,7 @@ export default function ClinicDashboard({
               initial={{ scale: 0.95 }} 
               animate={{ scale: 1 }} 
               exit={{ scale: 0.95 }}
-              className="bg-white rounded-2xl max-w-md w-full p-8 shadow-2xl space-y-6"
+              className="bg-white rounded-2xl max-w-md w-full p-4 sm:p-8 max-h-[90vh] overflow-y-auto shadow-2xl space-y-6"
             >
               <div className="flex justify-between items-center">
                 <h3 className="text-sm font-semibold text-[#0b1c30]">Ficha de Cadastro de Novo Paciente</h3>
@@ -958,7 +958,7 @@ export default function ClinicDashboard({
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[10px] uppercase font-bold text-gray-400 mb-1">Idade</label>
                     <input 
@@ -984,7 +984,7 @@ export default function ClinicDashboard({
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[10px] uppercase font-bold text-gray-400 mb-1">E-mail</label>
                     <input 

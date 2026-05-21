@@ -441,11 +441,11 @@ export default function FinancialRevenueCenter({
       </div>
 
       {/* 3. FINTECH ANALYTICS CARDS LEDGER (Stripe-Style Panels) */}
-      <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         
         {/* Metric 1: Monthly inflow */}
         <div className="bg-white p-5 border border-gray-150 rounded-2xl shadow-2xs text-left relative overflow-hidden group hover:shadow-sm transition-all md:col-span-1">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
             <span className="text-[9px] text-[#2563eb] font-extrabold tracking-wider uppercase block">Faturamento Brutal (Mês)</span>
             <TrendingUp className="w-4 h-4 text-emerald-500 shrink-0" />
           </div>
@@ -460,7 +460,7 @@ export default function FinancialRevenueCenter({
 
         {/* Metric 2: Net profit estimated */}
         <div className="bg-white p-5 border border-gray-150 rounded-2xl shadow-2xs text-left relative overflow-hidden group hover:shadow-sm transition-all md:col-span-1">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
             <span className="text-[9px] text-emerald-600 font-extrabold tracking-wider uppercase block">Lucro Líquido Real</span>
             <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
           </div>
@@ -475,7 +475,7 @@ export default function FinancialRevenueCenter({
 
         {/* Metric 3: Total pending queue */}
         <div className="bg-white p-5 border border-gray-150 rounded-2xl shadow-2xs text-left relative overflow-hidden group hover:shadow-sm transition-all md:col-span-1">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
             <span className="text-[9px] text-amber-600 font-extrabold tracking-wider uppercase block">Receita Pendente (Inflow)</span>
             <Clock className="w-4 h-4 text-amber-500 shrink-0" />
           </div>
@@ -490,7 +490,7 @@ export default function FinancialRevenueCenter({
 
         {/* Metric 4: Direct active overhead metrics */}
         <div className="bg-white p-5 border border-gray-150 rounded-2xl shadow-2xs text-left relative overflow-hidden group hover:shadow-sm transition-all md:col-span-1">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
             <span className="text-[9px] text-rose-600 font-extrabold tracking-wider uppercase block">Despesas Operacionais Pavimentadas</span>
             <TrendingDown className="w-4 h-4 text-rose-500 shrink-0" />
           </div>
@@ -505,7 +505,7 @@ export default function FinancialRevenueCenter({
 
         {/* Metric 5: Active clinical appointments projected ledger */}
         <div className="bg-white p-5 border border-gray-150 rounded-2xl shadow-2xs text-left relative overflow-hidden group hover:shadow-sm transition-all md:col-span-1">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
             <span className="text-[9px] text-indigo-600 font-extrabold tracking-wider uppercase block">Inadimplência Clínico</span>
             <AlertCircle className="w-4 h-4 text-red-500 shrink-0" />
           </div>
@@ -572,7 +572,7 @@ export default function FinancialRevenueCenter({
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 text-left">
               
               <div className="lg:col-span-8 bg-white border border-gray-150 rounded-3xl p-6">
-                <div className="flex justify-between items-center mb-5 border-b border-gray-50 pb-3">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between items-start gap-3 mb-5 border-b border-gray-50 pb-3">
                   <div>
                     <h3 className="text-sm font-bold text-[#0b1c30] flex items-center gap-1.5">
                       <BarChart4 className="w-4 h-4 text-blue-600" /> Fluxo de Caixa Recorrente (Mês a Mês)
@@ -949,7 +949,7 @@ export default function FinancialRevenueCenter({
             className="space-y-4 text-left"
           >
             <div className="bg-white border border-gray-150 rounded-2xl p-6">
-              <div className="flex justify-between items-center border-b border-gray-50 pb-4 mb-4">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between items-start gap-3 border-b border-gray-50 pb-4 mb-4">
                 <div>
                   <h3 className="text-sm font-extrabold text-[#0b1c30] flex items-center gap-1.5">
                     <Building className="w-4.5 h-4.5 text-rose-500" /> Livro Auxiliar de Despesas (Outflow)
@@ -1041,7 +1041,7 @@ export default function FinancialRevenueCenter({
             className="space-y-4 text-left"
           >
             <div className="bg-white border border-gray-150 rounded-2xl p-6">
-              <div className="flex justify-between items-center border-b border-gray-50 pb-4 mb-4">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between items-start gap-3 border-b border-gray-50 pb-4 mb-4">
                 <div>
                   <h3 className="text-sm font-extrabold text-[#0b1c30] flex items-center gap-1.5">
                     <Percent className="w-4.5 h-4.5 text-indigo-600" /> Relatório de Royalties &amp; Incentivos
@@ -1083,7 +1083,7 @@ export default function FinancialRevenueCenter({
                       </div>
 
                       {/* Cashflow columns */}
-                      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-xs font-semibold">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs font-semibold">
                         <div>
                           <span className="text-[9px] text-gray-400 block font-bold uppercase">FATURAMENTO CLINICO BRUTO</span>
                           <span className="text-slate-700 font-extrabold">€ {value.toLocaleString('pt-PT')}</span>
@@ -1133,9 +1133,9 @@ export default function FinancialRevenueCenter({
               initial={{ scale: 0.95 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.95 }}
-              className="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-5"
+              className="bg-white rounded-3xl max-w-md w-full p-4 sm:p-6 max-h-[90vh] overflow-y-auto shadow-2xl space-y-5"
             >
-              <div className="flex justify-between items-center border-b border-gray-100 pb-3">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between items-start gap-3 border-b border-gray-100 pb-3">
                 <h3 className="text-xs font-black uppercase text-[#0b1c30] flex items-center gap-1.5">
                   <Receipt className="w-4 h-4 text-[#2563eb]" /> Registrar Nova Fatura de Tratamento
                 </h3>
@@ -1173,7 +1173,7 @@ export default function FinancialRevenueCenter({
                   </select>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-">
                   <div>
                     <label className="block text-[9px] uppercase font-bold text-gray-400 mb-1">Valor do Procedimento (€)</label>
                     <input 
@@ -1245,9 +1245,9 @@ export default function FinancialRevenueCenter({
               initial={{ scale: 0.95 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.95 }}
-              className="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-5"
+              className="bg-white rounded-3xl max-w-md w-full p-4 sm:p-6 max-h-[90vh] overflow-y-auto shadow-2xl space-y-5"
             >
-              <div className="flex justify-between items-center border-b border-gray-100 pb-3">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between items-start gap-3 border-b border-gray-100 pb-3">
                 <h3 className="text-xs font-black uppercase text-[#0b1c30] flex items-center gap-1.5">
                   <TrendingDown className="w-4 h-4 text-rose-500" /> Registrar Despesa de Clínca
                 </h3>
@@ -1270,7 +1270,7 @@ export default function FinancialRevenueCenter({
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-">
                   <div>
                     <label className="block text-[9px] uppercase font-bold text-gray-400 mb-1">Categoria</label>
                     <select
@@ -1299,7 +1299,7 @@ export default function FinancialRevenueCenter({
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-">
                   <div>
                     <label className="block text-[9px] uppercase font-bold text-gray-400 mb-1">Status Pagamento</label>
                     <select
@@ -1366,7 +1366,7 @@ export default function FinancialRevenueCenter({
             >
               <div className="space-y-6">
                 
-                <div className="flex justify-between items-center border-b border-gray-150 pb-4">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between items-start gap-3 border-b border-gray-150 pb-4">
                   <div>
                     <span className="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full font-bold uppercase tracking-wide">
                       PREVISÃO RECEBIDO

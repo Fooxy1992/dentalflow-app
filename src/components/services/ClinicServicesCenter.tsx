@@ -303,7 +303,7 @@ export default function ClinicServicesCenter({
             initial={{ opacity: 0, scale: 0.95, y: -20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
-            className={`p-4 rounded-xl border flex items-center justify-between text-xs font-bold shadow-md z-30 relative ${
+            className={`p-4 rounded-xl border flex flex-col sm:flex-row sm:items-center sm:justify-between items-start gap-4 text-xs font-bold shadow-md z-30 relative ${
               notification.type === 'success' 
                 ? 'bg-blue-50 text-blue-900 border-blue-200' 
                 : 'bg-amber-50 text-amber-950 border-amber-200'
@@ -352,11 +352,11 @@ export default function ClinicServicesCenter({
       </div>
 
       {/* 3. BENTO-BOX PREMIUM SERVICES ANALYTICS */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         
         {/* Metric 1: Clinical catalog strength */}
         <div className="bg-white p-5 border border-gray-150 rounded-2xl shadow-2xs text-left relative overflow-hidden group hover:shadow-sm transition-all">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
             <span className="text-[9px] text-indigo-600 font-extrabold tracking-wider uppercase block">Tratamentos Ativos</span>
             <Activity className="w-4 h-4 text-blue-500" />
           </div>
@@ -371,7 +371,7 @@ export default function ClinicServicesCenter({
 
         {/* Metric 2: Popular treatment */}
         <div className="bg-white p-5 border border-gray-150 rounded-2xl shadow-2xs text-left relative overflow-hidden group hover:shadow-sm transition-all">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
             <span className="text-[9px] text-[#2563eb] font-extrabold tracking-wider uppercase block">Procedimento Mais Procurado</span>
             <Sparkles className="w-4 h-4 text-emerald-500" />
           </div>
@@ -386,7 +386,7 @@ export default function ClinicServicesCenter({
 
         {/* Metric 3: Total aggregated book value */}
         <div className="bg-white p-5 border border-gray-150 rounded-2xl shadow-2xs text-left relative overflow-hidden group hover:shadow-sm transition-all">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
             <span className="text-[9px] text-emerald-600 font-extrabold tracking-wider uppercase block">Receita Acumulada</span>
             <TrendingUp className="w-4 h-4 text-emerald-500 animate-pulse" />
           </div>
@@ -401,7 +401,7 @@ export default function ClinicServicesCenter({
 
         {/* Metric 4: Average consultation window */}
         <div className="bg-white p-5 border border-gray-150 rounded-2xl shadow-2xs text-left relative overflow-hidden group hover:shadow-sm transition-all">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
             <span className="text-[9px] text-amber-600 font-extrabold tracking-wider uppercase block">Duração Média</span>
             <Clock className="w-4 h-4 text-amber-500" />
           </div>
@@ -551,7 +551,7 @@ export default function ClinicServicesCenter({
               </div>
 
               {/* Bottom control row */}
-              <div className="mt-6 pt-4 border-t border-gray-50 flex items-center justify-between text-[11px] font-bold">
+              <div className="mt-6 pt-4 border-t border-gray-50 flex flex-col sm:flex-row sm:items-center sm:justify-between items-start gap-4 text-[11px] font-bold">
                 
                 {/* Bookings sum */}
                 <div className="text-left">
@@ -627,10 +627,10 @@ export default function ClinicServicesCenter({
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-white rounded-3xl border border-gray-150 shadow-2xl w-full max-w-5xl overflow-hidden"
+              className="bg-white rounded-3xl border border-gray-150 shadow-2xl w-full max-w-5xl overflow-hidden max-h-[95vh]"
             >
               {/* Modal header */}
-              <div className="bg-[#fcfdff] p-6 border-b border-gray-100 flex items-center justify-between">
+              <div className="bg-[#fcfdff] p-6 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center sm:justify-between items-start gap-4">
                 <div>
                   <h3 className="font-extrabold text-base text-[#0b1c30]">
                     {editingService ? `Editar Configurações: ${serviceForm.name}` : 'Registrar Nova Especialidade Odontológica'}
@@ -691,7 +691,7 @@ export default function ClinicServicesCenter({
                     />
                   </div>
 
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
                       <label className="text-[10px] font-extrabold uppercase tracking-wide text-gray-500 block mb-1">Preço Base (BRL)</label>
                       <input 
@@ -736,7 +736,7 @@ export default function ClinicServicesCenter({
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-[10px] font-extrabold uppercase tracking-wide text-gray-500 block mb-1">Complexidade Operatória</label>
                       <div className="flex gap-2">
@@ -757,7 +757,7 @@ export default function ClinicServicesCenter({
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       <div>
                         <label className="text-[10px] font-extrabold uppercase tracking-wide text-gray-500 block mb-1">Emoji / Icone</label>
                         <input 
@@ -783,7 +783,7 @@ export default function ClinicServicesCenter({
                   {/* Schedulers dentist multi checkbox selection */}
                   <div>
                     <label className="text-[10px] font-extrabold uppercase tracking-wide text-gray-500 block mb-1.5">Profissionais Habilitados no Corpo Clínico</label>
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {dentists.map(d => {
                         const isAssigned = serviceForm.assignedDentists.includes(d.name);
                         return (
@@ -809,8 +809,8 @@ export default function ClinicServicesCenter({
                   </div>
 
                   {/* Operational Settings toggles */}
-                  <div className="bg-slate-50 p-4 rounded-2xl border border-gray-150 grid grid-cols-2 gap-4">
-                    <div className="flex items-center justify-between text-xs">
+                  <div className="bg-slate-50 p-4 rounded-2xl border border-gray-150 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between items-start gap-4 text-xs">
                       <div>
                         <span className="font-extrabold text-[#0b1c30] block">Agendamento Online</span>
                         <span className="text-[10px] text-gray-400">Disponível no site público</span>
@@ -823,7 +823,7 @@ export default function ClinicServicesCenter({
                       />
                     </div>
 
-                    <div className="flex items-center justify-between text-xs">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between items-start gap-4 text-xs">
                       <div>
                         <span className="font-extrabold text-[#0b1c30] block">Ativo Operacional</span>
                         <span className="text-[10px] text-gray-400">Pronto para atendimento</span>
@@ -936,7 +936,7 @@ export default function ClinicServicesCenter({
               exit={{ scale: 0.95, opacity: 0 }}
               className="bg-white rounded-2xl border border-gray-150 shadow-xl w-full max-w-md p-6"
             >
-              <div className="flex justify-between items-center mb-4 pb-2 border-b border-gray-50">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between items-start gap-3 mb-4 pb-2 border-b border-gray-50">
                 <h3 className="font-extrabold text-[#0b1c30] text-sm flex items-center gap-1.5">
                   <FolderPlus className="w-4 h-4 text-purple-600" /> Cadastrar Categoria Funcional
                 </h3>
@@ -970,7 +970,7 @@ export default function ClinicServicesCenter({
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   <div>
                     <label className="text-[10px] uppercase font-bold text-gray-400 block mb-1">Emoji / Icone</label>
                     <input 

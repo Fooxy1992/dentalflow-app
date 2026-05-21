@@ -409,7 +409,7 @@ export default function DentistsTeamCenter({
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <button 
             onClick={() => setShowAddModal(true)}
             className="bg-[#2563eb] hover:bg-blue-700 text-white rounded-xl py-2.5 px-4.5 text-xs font-bold transition-all shadow-sm flex items-center gap-1.5 shrink-0 cursor-pointer"
@@ -420,11 +420,11 @@ export default function DentistsTeamCenter({
       </div>
 
       {/* 2. DENTAL CLINIC OPERATIONS ANALYTICS */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         
         {/* Metric 1 */}
         <div className="bg-white p-5 border border-gray-100 rounded-2xl shadow-xs text-left relative overflow-hidden group hover:shadow-sm transition-all">
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold">
               <UserCheck className="w-5 h-5" />
             </div>
@@ -441,7 +441,7 @@ export default function DentistsTeamCenter({
 
         {/* Metric 2 */}
         <div className="bg-white p-5 border border-gray-100 rounded-2xl shadow-xs text-left relative overflow-hidden group hover:shadow-sm transition-all">
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-indigo-50 text-[#2563eb] flex items-center justify-center font-bold">
               <Activity className="w-5 h-5" />
             </div>
@@ -457,7 +457,7 @@ export default function DentistsTeamCenter({
 
         {/* Metric 3 */}
         <div className="bg-white p-5 border border-gray-100 rounded-2xl shadow-xs text-left relative overflow-hidden group hover:shadow-sm transition-all">
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
               <Smile className="w-5 h-5" />
             </div>
@@ -474,7 +474,7 @@ export default function DentistsTeamCenter({
 
         {/* Metric 4 */}
         <div className="bg-white p-5 border border-gray-100 rounded-2xl shadow-xs text-left relative overflow-hidden group hover:shadow-sm transition-all">
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center font-bold">
               <Clock className="w-5 h-5" />
             </div>
@@ -604,7 +604,7 @@ export default function DentistsTeamCenter({
                 </div>
 
                 {/* Key operational data points */}
-                <div className="grid grid-cols-3 gap-3 my-5 border-y border-gray-50 py-3.5 text-xs">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 my-5 border-y border-gray-50 py-3.5 text-xs">
                   <div>
                     <span className="text-[9px] text-gray-400 font-bold uppercase tracking-wider block">Experiência</span>
                     <span className="font-extrabold text-slate-700">{meta.experience} anos</span>
@@ -727,7 +727,7 @@ export default function DentistsTeamCenter({
 
           <div className="space-y-3 font-semibold">
             <div>
-              <div className="flex justify-between mb-1 text-gray-650">
+              <div className="flex flex-col sm:flex-row justify-between mb-1 text-gray-650">
                 <span>Implantodontia / Cirurgia</span>
                 <span>42%</span>
               </div>
@@ -737,7 +737,7 @@ export default function DentistsTeamCenter({
             </div>
 
             <div>
-              <div className="flex justify-between mb-1 text-gray-650">
+              <div className="flex flex-col sm:flex-row justify-between mb-1 text-gray-650">
                 <span>Ortodontia Estética</span>
                 <span>35%</span>
               </div>
@@ -747,7 +747,7 @@ export default function DentistsTeamCenter({
             </div>
 
             <div>
-              <div className="flex justify-between mb-1 text-gray-650">
+              <div className="flex flex-col sm:flex-row justify-between mb-1 text-gray-650">
                 <span>Dentística de Harmonização</span>
                 <span>23%</span>
               </div>
@@ -779,13 +779,13 @@ export default function DentistsTeamCenter({
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 180 }}
-              className="fixed right-0 top-0 bottom-0 max-w-lg w-full bg-white z-50 shadow-2xl p-7 overflow-y-auto text-left flex flex-col justify-between"
+              className="fixed right-0 top-0 bottom-0 max-w-lg w-full sm:w-8/12 md:w-full bg-white z-50 shadow-2xl p-4 sm:p-7 overflow-y-auto text-left flex flex-col justify-between"
             >
               
               <div className="space-y-6">
                 
                 {/* Close handle bar */}
-                <div className="flex justify-between items-center border-b border-gray-100 pb-4">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between items-start gap-3 border-b border-gray-100 pb-4">
                   <div>
                     <span className="text-[10px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full font-bold uppercase">
                       FICHA DO CREDENCIADO
@@ -856,7 +856,7 @@ export default function DentistsTeamCenter({
                   </div>
 
                   {/* Operational stats values */}
-                  <div className="grid grid-cols-2 gap-4 pt-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap- pt-2">
                     <div className="p-4 bg-slate-50 rounded-2xl text-center space-y-1 border border-gray-100">
                       <span className="text-[9px] text-gray-400 font-bold block uppercase">ATENDIMENTOS NO MÊS</span>
                       <strong className="text-xl font-extrabold text-[#0b1c30]">68 pacientes</strong>
@@ -926,9 +926,9 @@ export default function DentistsTeamCenter({
               initial={{ scale: 0.95 }} 
               animate={{ scale: 1 }} 
               exit={{ scale: 0.95 }}
-              className="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl space-y-6 text-left"
+              className="bg-white rounded-3xl max-w-lg w-full p-4 sm:p-8 max-h-[90vh] overflow-y-auto shadow-2xl space-y-6 text-left"
             >
-              <div className="flex justify-between items-center border-b border-gray-100 pb-3">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between items-start gap-3 border-b border-gray-100 pb-3">
                 <h3 className="text-sm font-bold text-[#0b1c30] flex items-center gap-1.5">
                   <Sparkles className="w-4 h-4 text-blue-600" /> Credenciamento de Novo Doutor / Dentista
                 </h3>
@@ -942,7 +942,7 @@ export default function DentistsTeamCenter({
 
               <form onSubmit={handleCreateDentistSubmit} className="space-y-4 text-xs">
                 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[10px] uppercase font-bold text-gray-400 mb-1">Nome Completo do Profissional</label>
                     <input 
@@ -971,7 +971,7 @@ export default function DentistsTeamCenter({
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[10px] uppercase font-bold text-gray-400 mb-1">Registro CRO (Ex: CRO-SP 99990)</label>
                     <input 
@@ -996,7 +996,7 @@ export default function DentistsTeamCenter({
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[10px] uppercase font-bold text-gray-400 mb-1">Instituição de Formação</label>
                     <input 
@@ -1019,7 +1019,7 @@ export default function DentistsTeamCenter({
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[10px] uppercase font-bold text-gray-400 mb-1">WhatsApp de Contato</label>
                     <input 
@@ -1042,7 +1042,7 @@ export default function DentistsTeamCenter({
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[10px] uppercase font-bold text-gray-400 mb-1">Habilidades Extras (Separadas por vírgula)</label>
                     <input 
